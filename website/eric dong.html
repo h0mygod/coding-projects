@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="main">
+        <div>
+        <span id="name">
+            <span id="name-letter">e</span><span id="name-letter">r</span><span id="name-letter">i</span><span id="name-letter">c</span>
+            <span id="name-letter">d</span><span id="name-letter">o</span><span id="name-letter">n</span><span id="name-letter">g</span>
+        </span>
+        <span id="menu">
+            <span id="about" class="menu-item">about
+                <button class="menubutton button-1" onclick="test(this)"></button>
+            </span>
+            <span id="resume" class="menu-item">resume
+                <button class="menubutton button-2" onclick="test(this)"></button>
+            </span>
+            <span id="test" class="menu-item">test
+                <button class="menubutton button-3" onclick="test(this)"></button>
+            </span>
+            <span id="home" class="menu-item">home
+                <button class="menubutton button-4" onclick="window.location.href='https://www.donger.ca';"></button>
+            </span>
+        <span>
+        </div>
+    </h1>
+</body>
+
+<style>
+    #back {
+        background: transparent;
+        border: none;
+        position: absolute;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 300;
+        font-size: clamp(3rem, 4vw, 5rem);
+        color: #ffffff;
+        z-index: 2;
+        left: 2%;
+        top: 1%;
+        opacity: 0;
+    }
+
+    body {
+        height: 100vh;
+        width: 100vw;
+        background-color: black;
+        margin: 0px;
+    }
+    h1 {
+        top: 25vh;
+        position: relative;
+        height: auto;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        margin: 0px;
+    }
+
+    .menubutton {
+        background: transparent;
+        border: none;
+        font-size:0;
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 90%;
+        width: 90%;
+        z-index: 1;
+    }
+
+    #name {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 300;
+        font-size: clamp(3rem, 4vw, 5rem);
+        color: pink;
+        animation: leftfade 2s forwards;
+        transition-duration: 100ms;
+    }
+
+    #name-letter {
+        font-weight: 300;
+        transition-duration: 100ms;
+    }
+
+    #menu {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 300;
+        font-size: clamp(3rem, 4vw, 5rem);
+        color: #ffffff;
+        transition: bottom 1s;
+    }
+
+    .menu-item {
+        position: relative;
+        transition-duration: 100ms;
+        animation: bumpdown 1s forwards;
+        opacity: 0;
+    }
+
+    #text-selected, #back {
+        position: absolute;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-weight: 300;
+        font-size: clamp(3rem, 4vw, 5rem);
+        color: #ffffff;
+        z-index: 2;
+        animation: select 1s forwards;
+        transition-duration: 100ms;
+    }
+
+    .selected {
+        z-index: 1;
+    }
+
+    #about {
+        animation-delay: 1.75s;
+    }
+
+    #resume {
+        animation-delay: 1.90s;
+    }
+
+    #test {
+        animation-delay: 2.05s;
+    }
+
+    #home {
+        animation-delay: 2.2s;
+    }
+
+    #about:hover, #resume:hover, #test:hover, #home:hover, #name-letter:hover {
+        font-weight: 700;
+    }
+    #text-selected:hover {
+        font-weight: 700;
+    }
+
+    @keyframes leftfade {
+        0% {
+            position: relative;
+            left: -200px; 
+            opacity: 0;
+        }
+
+        50% {
+            position: relative;
+            left: 0; opacity: 1; 
+        }
+
+        70% {
+            position: relative;
+            top: 0;
+        }
+
+        90% {
+            position: relative;
+            top: -20px;
+        }
+
+        95% {
+            position: relative;
+            top: 20px;
+        }
+
+        100% {
+            position: relative;
+            top: 0;
+        }
+    }
+
+    @keyframes bumpdown {
+        0% {
+            opacity: 0;
+            bottom: 100px;
+        }
+
+        100% {
+            opacity: 1;
+            bottom: 0px;
+        }
+    }
+
+    @keyframes select {
+        0% {
+            position: absolute
+        }
+        50% {
+            position: absolute;
+        }
+        
+        100% {
+            position: absolute;
+            left: 2%;
+            top: 1%;
+        }
+    }
+    @keyframes deselect {
+        0% {
+            position: absolute;
+            left: 6%;
+            top: 1%;
+            opacity: 1;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes refade {
+        0% {
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes stay {
+        0% {opacity: 1;}
+        55% {opacity: 1;}
+        100% {opacity: 0;}
+    }
+
+</style>
+
+<script>
+    function test(button) {
+        if (button.classList.contains("selected")) {
+            let text = document.getElementById("text-selected")
+            text.innerHTML = button.id
+            text.style.fontWeight = "300"
+            text.style.animation = "deselect 1s forwards"
+            text.style.zIndex = "-1"
+            document.getElementById("main").style.zIndex = 0
+            document.getElementById("main").style.animation = "refade 2s forwards"
+            text.addEventListener("animationend", () => {
+                text.style.animation = "stay 1s forwards"
+                text.addEventListener("animationend", () => {
+                    text.remove()
+                })
+            })
+            button.remove()
+        } else {
+            let text = document.createElement('span');
+            text.id = "text-selected"
+            text.innerHTML = "< " + button.parentElement.id + '<button id = "'+button.parentElement.id+'" class="menubutton selected" onclick="test(this)"></button>'
+            text.style.top = (getOffset(button.parentElement).top)+"px"
+            text.style.left = getOffset(button.parentElement).left+"px"
+            document.body.appendChild(text);
+            document.getElementById("main").style.animation = ""
+            document.getElementById("main").style.zIndex = -1
+            document.getElementById("main").style.opacity = 0
+        }
+    }
+    function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+    };
+}
+</script>
+
+</html>

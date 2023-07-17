@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="loading">
+        <img id="rocket" src="./images/rocket.png">
+            rocket ship loading
+        </div>
+        <div id="rocket-smoke">
+            smoke
+        </div>
+    </div>
+    <div id="background">
+        space background
+    </div>
+</body>
+
+<style>
+    body, html {
+        background-color: black;
+        padding: 0;
+        margin: 0;
+    }
+
+    #background {
+        filter: blur(1px);
+        width: 100vw;
+        height: 100vh;
+        background: url('./images/space.jpg') no-repeat;
+        float: left;
+        background-position: center;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 1;
+        animation: blurring 4s ease 3s forwards;
+    }
+
+    #rocket {
+        rotate: 90deg;
+        width: 10vw;
+        position: relative;
+        top: 30vh;
+        left: 0px;
+        z-index: 2;
+        animation: fly-in 2s ease 0s forwards;
+    }
+
+    @keyframes blurring {
+    0% {
+        filter: blur(1px);
+        }
+    100% {
+        filter: blur(8px);
+        }
+    }
+
+    @keyframes fly-in {
+        0% {
+            left: -30%;
+        }
+        100% {
+            left: 50%;
+        }
+    }
+</style>
+
