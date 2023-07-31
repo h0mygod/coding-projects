@@ -7,7 +7,6 @@ class Solution(object):
         indlo = 0
         indhi = 1
         maxprofit = 0
-        print(len(prices))
         while indhi < len(prices):
             tempprofit = prices[indhi] - prices[indlo]
             if prices[indlo] < prices[indhi]:
